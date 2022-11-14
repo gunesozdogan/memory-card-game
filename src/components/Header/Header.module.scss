@@ -1,0 +1,30 @@
+@import "../../index.module.scss";
+
+.header {
+    @include displayFlex(row, center, space-between, 2rem);
+    background-color: #222;
+    padding: 2rem;
+}
+
+.header-left {
+    @include displayFlex(column, left, center, 0.5rem);
+    color: #baff39;
+    h1 {
+        font-size: 5rem;
+        letter-spacing: -1px;
+    }
+
+    p {
+        font-size: 1.6rem;
+    }
+}
+
+.header-right {
+    @include displayFlex(column, left, center, 1rem);
+    padding: 2rem;
+    color: #baff39;
+
+    span {
+        font-size: 1.6rem;
+    }
+}

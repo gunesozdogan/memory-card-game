@@ -1,0 +1,26 @@
+@import "../../index.module.scss";
+
+.character-container {
+    @include displayFlex(column, center, center, 1rem);
+    padding: 2rem 0;
+    background-color: #baff39;
+    border-radius: 2rem;
+    min-height: 28rem;
+    min-width: 28rem;
+    cursor: pointer;
+
+    h3 {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
+.character-container:hover {
+    background-color: #88bb2a;
+}
+
+.img {
+    height: 24rem;
+    width: 24rem;
+    border-radius: 2rem;
+}

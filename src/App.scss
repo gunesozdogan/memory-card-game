@@ -1,0 +1,6 @@
+@import "./index.module.scss";
+
+.App {
+    min-height: 100vh;
+    @include displayFlex(column, space-between, start, 0);
+}
