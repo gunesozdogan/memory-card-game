@@ -9,7 +9,7 @@ export default function Characters(props) {
                     <img
                         className={styles.img}
                         src={character.image}
-                        alt={"anduin"}
+                        alt={character.fullName + " Image"}
                     ></img>
                     <h3>{character.fullName}</h3>
                 </div>
