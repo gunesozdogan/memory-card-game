@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Main.module.css";
+
+import Overlay from "../Overlay/Overlay";
 
 import Characters from "../Characters/Characters";
 import anduinImg from "../../images/anduin.jpeg";
@@ -71,6 +73,7 @@ export default function Main(props) {
 
     const [characters, setCharacters] = useState(initialState);
     const [selectedCharacters, setSelectedCharacters] = useState([]);
+    const [gameLost, setGameLost] = useState(false);
 
     function shuffleCharacters(arr) {
         const copyArr = arr.slice();
@@ -87,13 +90,8 @@ export default function Main(props) {
         if (score > bestScore) setBestScore(score);
         setScore(0);
         setSelectedCharacters([]);
+        setGameLost(false);
     }
-
-    // Checks win
-    useEffect(() => {
-        console.log(score);
-        if (score === 12) console.log("You won the game");
-    }, [score]);
 
     function handleClick(e) {
         const clickedCharacterName = e.target.getAttribute("data-key");
@@ -108,7 +106,7 @@ export default function Main(props) {
 
             // if same character is selected resets the game
         } else {
-            resetGame();
+            setGameLost(true);
         }
 
         // shuffles cards
@@ -116,15 +114,18 @@ export default function Main(props) {
     }
 
     return (
-        <main className={styles["character-container"]}>
-            <Characters
-                characters={characters}
-                handleClick={handleClick}
-                score={score}
-                bestScore={bestScore}
-                setScore={setScore}
-                setBestScore={setBestScore}
-            ></Characters>
-        </main>
+        <React.Fragment>
+            <Overlay score={score} resetGame={resetGame} gameLost={gameLost} />
+            <main className={styles["character-container"]}>
+                <Characters
+                    characters={characters}
+                    handleClick={handleClick}
+                    score={score}
+                    bestScore={bestScore}
+                    setScore={setScore}
+                    setBestScore={setBestScore}
+                ></Characters>
+            </main>
+        </React.Fragment>
     );
 }

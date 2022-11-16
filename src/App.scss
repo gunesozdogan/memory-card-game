@@ -2,5 +2,7 @@
 
 .App {
     min-height: 100vh;
-    @include displayFlex(column, space-between, start, 0);
+    @include displayFlex(column, space-between, flex-start, 0);
+    position: relative;
+    z-index: 2000;
 }

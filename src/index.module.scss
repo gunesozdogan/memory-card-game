@@ -6,6 +6,8 @@
     font-size: 10px;
 }
 
+$yellow-box-shadow: 2px 5px 15px 2px yellow;
+
 @mixin displayFlex($direction, $alignDirection, $justifyDirection, $gap) {
     display: flex;
     flex-direction: $direction;
