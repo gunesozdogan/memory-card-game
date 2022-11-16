@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Main.module.css";
 
 import Characters from "../Characters/Characters";
@@ -15,7 +15,9 @@ import sylvanasImg from "../../images/sylvanas.jpeg";
 import thrallImg from "../../images/thrall.jpeg";
 import tirionImg from "../../images/tirion.jpeg";
 
-export default function Main() {
+export default function Main(props) {
+    let { score, bestScore } = props;
+    const { setScore, setBestScore } = props;
     const initialState = [
         {
             fullName: "Anduin Wrynn",
@@ -68,23 +70,60 @@ export default function Main() {
     ];
 
     const [characters, setCharacters] = useState(initialState);
+    const [selectedCharacters, setSelectedCharacters] = useState([]);
 
-    const shuffleCharacters = arr => {
+    function shuffleCharacters(arr) {
         const copyArr = arr.slice();
         copyArr.sort(() => Math.random() - 0.5);
         return copyArr;
-    };
+    }
 
-    const handleClick = () => {
+    function isIncluded(arr, item) {
+        if (arr.includes(item)) return true;
+        return false;
+    }
+
+    function resetGame() {
+        if (score > bestScore) setBestScore(score);
+        setScore(0);
+        setSelectedCharacters([]);
+    }
+
+    // Checks win
+    useEffect(() => {
+        console.log(score);
+        if (score === 12) console.log("You won the game");
+    }, [score]);
+
+    function handleClick(e) {
+        const clickedCharacterName = e.target.getAttribute("data-key");
         const newCharacters = shuffleCharacters(characters);
+
+        if (!isIncluded(selectedCharacters, clickedCharacterName)) {
+            // adding selected card to selected characters array
+            setSelectedCharacters(
+                selectedCharacters.concat([clickedCharacterName])
+            );
+            setScore(score + 1);
+
+            // if same character is selected resets the game
+        } else {
+            resetGame();
+        }
+
+        // shuffles cards
         setCharacters(newCharacters);
-    };
+    }
 
     return (
         <main className={styles["character-container"]}>
             <Characters
                 characters={characters}
                 handleClick={handleClick}
+                score={score}
+                bestScore={bestScore}
+                setScore={setScore}
+                setBestScore={setBestScore}
             ></Characters>
         </main>
     );

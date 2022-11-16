@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header(props) {
     return (
         <header className={styles.header}>
             <div className={styles["header-left"]}>
@@ -12,8 +12,8 @@ export default function Header() {
                 </p>
             </div>
             <div className={styles["header-right"]}>
-                <span>Score:</span>
-                <span>Best Score:</span>
+                <span>Score: {props.score}</span>
+                <span>Best Score: {props.bestScore}</span>
             </div>
         </header>
     );
