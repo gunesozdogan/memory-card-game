@@ -16,7 +16,7 @@ import thrallImg from "../../images/thrall.jpeg";
 import tirionImg from "../../images/tirion.jpeg";
 
 export default function Main() {
-    const characters = [
+    const initialState = [
         {
             fullName: "Anduin Wrynn",
             image: anduinImg,
@@ -67,11 +67,25 @@ export default function Main() {
         },
     ];
 
-    const [charactersOrder, setCharactersOrder] = useState([characters]);
+    const [characters, setCharacters] = useState(initialState);
+
+    const shuffleCharacters = arr => {
+        const copyArr = arr.slice();
+        copyArr.sort(() => Math.random() - 0.5);
+        return copyArr;
+    };
+
+    const handleClick = () => {
+        const newCharacters = shuffleCharacters(characters);
+        setCharacters(newCharacters);
+    };
 
     return (
         <main className={styles["character-container"]}>
-            <Characters characters={characters}></Characters>
+            <Characters
+                characters={characters}
+                handleClick={handleClick}
+            ></Characters>
         </main>
     );
 }

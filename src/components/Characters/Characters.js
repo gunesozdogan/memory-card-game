@@ -5,7 +5,11 @@ export default function Characters(props) {
     return (
         <React.Fragment>
             {props.characters.map((character, index) => (
-                <div className={styles["character-container"]} key={index}>
+                <div
+                    onClick={props.handleClick}
+                    className={styles["character-container"]}
+                    key={index}
+                >
                     <img
                         className={styles.img}
                         src={character.image}

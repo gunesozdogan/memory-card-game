@@ -1,12 +1,13 @@
 @import "../../index.module.scss";
 
 .character-container {
-    @include displayFlex(column, center, center, 1rem);
+    @include displayFlex(column, center, flex-start, 1rem);
     padding: 2rem 0;
     background-color: #baff39;
     border-radius: 2rem;
-    min-height: 28rem;
-    min-width: 28rem;
+    height: 36rem;
+    width: 30rem;
+
     cursor: pointer;
 
     h3 {
@@ -16,11 +17,11 @@
 }
 
 .character-container:hover {
-    background-color: #88bb2a;
+    box-shadow: 2px 5px 15px 2px yellow;
 }
 
 .img {
-    height: 24rem;
+    height: 28rem;
     width: 24rem;
     border-radius: 2rem;
 }
