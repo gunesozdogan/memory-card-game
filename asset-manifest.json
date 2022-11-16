@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/memory-card-game/static/css/main.8b2a79ed.css",
+    "main.css": "/memory-card-game/static/css/main.09a0da39.css",
     "main.js": "/memory-card-game/static/js/main.aa47f7a5.js",
     "static/media/deathwing.jpeg": "/memory-card-game/static/media/deathwing.7abb08fcf348eff9d459.jpeg",
     "static/media/anduin.jpeg": "/memory-card-game/static/media/anduin.b296c1245f45487e612f.jpeg",
@@ -15,11 +15,11 @@
     "static/media/illidan.jpeg": "/memory-card-game/static/media/illidan.d266f3637370f3f074fb.jpeg",
     "static/media/guldan.jpeg": "/memory-card-game/static/media/guldan.f812051bc78fb6ebc05d.jpeg",
     "index.html": "/memory-card-game/index.html",
-    "main.8b2a79ed.css.map": "/memory-card-game/static/css/main.8b2a79ed.css.map",
+    "main.09a0da39.css.map": "/memory-card-game/static/css/main.09a0da39.css.map",
     "main.aa47f7a5.js.map": "/memory-card-game/static/js/main.aa47f7a5.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b2a79ed.css",
+    "static/css/main.09a0da39.css",
     "static/js/main.aa47f7a5.js"
   ]
 }
