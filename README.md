@@ -12,7 +12,7 @@ Click on the characters to earn points, if you click on the same character more 
 
 # Tools
 
-React (Functional Components)
+React (Functional Components)  
 Sass
 
 # Notes
